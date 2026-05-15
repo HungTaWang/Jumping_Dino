@@ -4,6 +4,8 @@
 
 遊戲本體採用了開源的 Chrome 恐龍專案：[t-rex-runner](https://github.com/wayou/t-rex-runner)。
 
+<img width="1272" height="471" alt="螢幕擷取畫面 2026-05-15 171956" src="https://github.com/user-attachments/assets/0ff3acdc-ea0b-4dce-9b7e-9757bcda91d9" />
+
 ## 檔案結構
 
 - `play_dino.py`: 遊戲執行主程式，負責啟動本地伺服器、開啟瀏覽器並載入 AI 模型來自動遊玩。
@@ -22,7 +24,7 @@
 
 ### 1. 安裝依賴套件
 
-請開啟終端機 (命令提示字元或 PowerShell)，並將路徑切換至本專案所在的資料夾，執行以下指令來安裝所需的檔案與 Python 套件：
+請開啟終端機 (命令提示字元或 PowerShell)，執行以下指令來安裝所需的檔案與 Python 套件：
 
 ```bash
 git clone https://github.com/HungTaWang/Jumping_Dino
