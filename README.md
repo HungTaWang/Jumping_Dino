@@ -36,7 +36,7 @@ git clone https://github.com/wayou/t-rex-runner
 pip install -r requirements.txt
 ```
 
-> **💡 提示 (GPU 支援)**：如果你擁有 NVIDIA 顯示卡並希望使用 GPU 進行神經網路運算，建議前往 [PyTorch 官方網站](https://pytorch.org/get-started/locally/) 依照你的 CUDA 版本安裝對應的 `torch`。如果不特別設定，預設的 CPU 版本也能順暢執行。
+> **提示 (GPU 支援)**：如果你擁有 NVIDIA 顯示卡並希望使用 GPU 進行神經網路運算，建議前往 [PyTorch 官方網站](https://pytorch.org/get-started/locally/) 依照你的 CUDA 版本安裝對應的 `torch`。如果不特別設定，預設的 CPU 版本也能順暢執行。
 
 ### 2. 執行程式
 
