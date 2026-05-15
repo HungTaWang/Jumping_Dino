@@ -33,6 +33,8 @@ git clone https://github.com/wayou/t-rex-runner
 ```
 
 ```bash
+py -m venv venv
+.\venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
@@ -43,7 +45,7 @@ pip install -r requirements.txt
 環境設定完成後，在終端機輸入以下指令啟動 AI 自動遊玩：
 
 ```bash
-python play_dino.py
+py play_dino.py
 ```
 
 ### 3. 執行過程說明
