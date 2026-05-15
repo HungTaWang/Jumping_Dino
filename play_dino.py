@@ -1,6 +1,3 @@
-"""
-純展示模式：載入訓練好的模型來玩遊戲 (無訓練邏輯)
-"""
 import os, time, threading
 import http.server, socketserver
 import numpy as np
@@ -19,10 +16,8 @@ print(f"運算設備: {device}")
 # 路徑處理 (支援 PyInstaller .exe)
 # ─────────────────────────────────────────────────────────────────
 if getattr(sys, 'frozen', False):
-    # 如果是打包好的 exe，以 exe 所在的資料夾為基準
     BASE_DIR = os.path.dirname(sys.executable)
 else:
-    # 如果是直接跑 Python 腳本，以腳本所在的資料夾為基準
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # 本地伺服器與 JS 參數
@@ -147,7 +142,7 @@ class DuelingDQN(nn.Module):
 # ─────────────────────────────────────────────────────────────────
 def play(model_path):
     if not os.path.exists(model_path):
-        print(f"❌ 找不到模型檔案: {model_path}")
+        print(f"找不到模型檔案: {model_path}")
         print("請確保檔案名稱正確，且位於同一資料夾。")
         return
         
@@ -157,7 +152,7 @@ def play(model_path):
     net = DuelingDQN(STATE_DIM, 2).to(device)
     net.load_state_dict(torch.load(model_path, map_location=device))
     net.eval()
-    print(f"✅ 成功載入模型: {model_path}")
+    print(f"成功載入模型: {model_path}")
     print("開始遊玩！(按 Ctrl+C 可停止)")
 
     try:
@@ -173,13 +168,13 @@ def play(model_path):
                     action = net(st).argmax(1).item()
                 state, distance, done = env.step(action)
                 score = max(score, distance * 0.025) # 轉換為遊戲內實際分數比例
-            print(f"🏁 第 {episode:3d} 回合結束，遊戲分數: {int(score)}")
+            print(f"第 {episode:3d} 回合結束，遊戲分數: {int(score)}")
             episode += 1
             time.sleep(1) # 暫停一下再重來
     except KeyboardInterrupt:
-        print("\n⏹️ 手動停止遊玩。")
+        print("\n手動停止遊玩。")
     except WebDriverException:
-        print("\n[⚠️ Chrome 視窗已關閉]")
+        print("\n[Chrome 視窗已關閉]")
     finally:
         env.close()
 

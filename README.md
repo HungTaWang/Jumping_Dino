@@ -22,10 +22,11 @@
 
 ### 1. 安裝依賴套件
 
-請開啟終端機 (命令提示字元或 PowerShell)，並將路徑切換至本專案所在的資料夾，執行以下指令來安裝所需的 Python 套件：
+請開啟終端機 (命令提示字元或 PowerShell)，並將路徑切換至本專案所在的資料夾，執行以下指令來安裝所需的檔案與 Python 套件：
 
 ```bash
 git clone https://github.com/HungTaWang/Jumping_Dino
+cd Jumping_Dino
 git clone https://github.com/wayou/t-rex-runner
 ```
 
