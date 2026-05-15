@@ -26,6 +26,7 @@
 
 ```bash
 git clone https://github.com/HungTaWang/Jumping_Dino
+git clone https://github.com/wayou/t-rex-runner
 ```
 
 ```bash
