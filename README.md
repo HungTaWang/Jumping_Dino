@@ -4,7 +4,7 @@
 
 遊戲本體採用了開源的 Chrome 恐龍專案：[t-rex-runner](https://github.com/wayou/t-rex-runner)。
 
-<img width="1272" height="471" alt="螢幕擷取畫面 2026-05-15 171956" src="https://github.com/user-attachments/assets/0ff3acdc-ea0b-4dce-9b7e-9757bcda91d9" />
+<img width="1281" height="567" alt="DINO HIGHER" src="https://github.com/user-attachments/assets/41533660-15ae-421e-b201-4846b71168ea" />
 
 ## 檔案結構
 
