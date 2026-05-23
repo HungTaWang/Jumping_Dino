@@ -1,5 +1,7 @@
 # AI 自動遊玩 Chrome 恐龍遊戲
 
+## 遊戲網址：https://hungtawang.github.io/t-rex-runner/
+
 這是一個基於深度強化學習 (Dueling DDQN) 訓練的 Chrome 離線恐龍遊戲自動遊玩程式。本專案載入已訓練好的模型權重，並透過 Selenium 控制瀏覽器進行自動遊玩。
 
 遊戲本體採用了開源的 Chrome 恐龍專案：[t-rex-runner](https://github.com/wayou/t-rex-runner)。
