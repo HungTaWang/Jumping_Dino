@@ -320,17 +320,17 @@ def train(load_model_path=None, save_model_path="dino_ddqn_dueling.pth"):
     BATCH_SIZE      = 128      # 更穩定的梯度估計
     GAMMA           = 0.99
     N_STEP          = 3        # 3-step 較不稀釋 crash 懲罰，信用歸因更精準
-    EPS_START       = 0.03
-    EPS_END         = 0.001    # 保留更多隨機性
+    EPS_START       = 1e-15
+    EPS_END         = 0.000    # 保留更多隨機性
     EPS_DECAY       = 15_000  # 更慢衰減，給予更充分的探索
     MEMORY_SIZE     = 200_000  # 加大 buffer，稀釋單一長回合的比例
     MIN_REPLAY_SIZE = 5_000   # 更充分的初始探索再開始學習
     NUM_EPISODES    = 3000
-    LR              = 5e-4    # 搭配 scheduler，早期學習更快
+    LR              = 1e-5    # 搭配 scheduler，早期學習更快
     TAU             = 0.001   # 軟更新係數（降低：target net 更穩定，減少 Q 值震盪）
     UPDATE_FREQ     = 4       # 每 4 步才做一次梯度更新，防止長回合壟斷訓練
     SAVE_EVERY      = 100      # 每 N 回合存一次
-    LOADED_EPS      = 0.03
+    LOADED_EPS      = 1e-15
 
     num_actions = 2   # 0=不動, 1=跳躍
 
@@ -350,7 +350,7 @@ def train(load_model_path=None, save_model_path="dino_ddqn_dueling.pth"):
         # ✅ 修正：只偏移 steps_done，不改 EPS_START
         # 讓 eps = EPS_END + (EPS_START - EPS_END)*exp(-steps/EPS_DECAY) 在起點等於 LOADED_EPS
         steps_done = int(-EPS_DECAY * math.log(
-            max((LOADED_EPS - EPS_END) / (EPS_START - EPS_END), 1e-9)
+            max((LOADED_EPS - EPS_END) / (EPS_START - EPS_END), 1e-15)
         ))
         print(f"探索率從 {LOADED_EPS:.4f} 繼續（steps_done 偏移至: {steps_done}）")
         # ✅ 修正：繼續訓練時 buffer 從空開始，用較小的暖身門檻
@@ -474,7 +474,7 @@ def train(load_model_path=None, save_model_path="dino_ddqn_dueling.pth"):
 
 # ─────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    MODEL_TO_LOAD = "dino8_ddqn_dueling_best.pth"                    # 填入 .pth 路徑可繼續訓練
-    SAVE_PATH     = "dino9_ddqn_dueling.pth"
+    MODEL_TO_LOAD = "dino10_ddqn_dueling_best.pth"                    # 填入 .pth 路徑可繼續訓練
+    SAVE_PATH     = "dino11_ddqn_dueling.pth"
     train(load_model_path=MODEL_TO_LOAD, save_model_path=SAVE_PATH)
 
